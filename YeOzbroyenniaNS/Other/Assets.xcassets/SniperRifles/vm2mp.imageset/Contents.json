@@ -1,0 +1,21 @@
+{
+  "images" : [
+    {
+      "filename" : "[removal.ai]_a9f8d730-87d5-49bd-86fc-f8ca3ac793d5-ump-vm2uos_578x250.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

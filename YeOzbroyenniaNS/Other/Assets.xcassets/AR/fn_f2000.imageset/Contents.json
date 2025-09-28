@@ -1,0 +1,15 @@
+{
+  "images" : [
+    {
+      "filename" : "FN_F2000S_noBG-2.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "template-rendering-intent" : "original"
+  }
+}
