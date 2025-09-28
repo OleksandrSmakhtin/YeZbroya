@@ -6,10 +6,12 @@
       "scale" : "1x"
     },
     {
+      "filename" : "tecIcon@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "tecIcon@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
