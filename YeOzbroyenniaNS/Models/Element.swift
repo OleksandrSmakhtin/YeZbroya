@@ -10,5 +10,5 @@ import Foundation
 struct Element: Codable {
     let subcategory: String
     let items: [String]
-    let imagePath: [String]
+    let imagePath: [String]?
 }

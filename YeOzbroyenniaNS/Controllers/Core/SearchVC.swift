@@ -22,7 +22,7 @@ class SearchVC: UIViewController {
     
     private let searchTable: UITableView = {
         let table = UITableView()
-        table.register(ListCell.self, forCellReuseIdentifier: ListCell.identifier)
+        table.register(ListCellWithPhoto.self, forCellReuseIdentifier: ListCellWithPhoto.identifier)
         table.showsVerticalScrollIndicator = false
         table.layer.cornerRadius = 15
         table.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
@@ -108,6 +108,9 @@ class SearchVC: UIViewController {
         navigationController?.navigationBar.tintColor = .label
         navigationItem.hidesSearchBarWhenScrolling = false
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: titleLbl)
+        if #available(iOS 26.0, *) {
+            navigationItem.leftBarButtonItem?.hidesSharedBackground = true
+        }
     }
 
 }
@@ -136,8 +139,8 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
     
     // cell for row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ListCell.identifier) as? ListCell else { return UITableViewCell() }
-        cell.configure(with: searchedItems[indexPath.row])
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: ListCellWithPhoto.identifier) as? ListCellWithPhoto else { return UITableViewCell() }
+        cell.configure(with: searchedItems[indexPath.row], image: nil)
         return cell
     }
     
@@ -154,6 +157,7 @@ extension SearchVC: UITableViewDelegate, UITableViewDataSource {
         let item = DataManager.shared.getItem(by: itemTitle)
         let vc = ItemVC()
         vc.item = item
+        vc.configureVc(with: item, imagePath: nil)
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Пошук", style: .plain, target: nil, action: nil)
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -186,7 +190,7 @@ extension SearchVC: SearchResultDelegate {
         DispatchQueue.main.async { [weak self] in
             let item = DataManager.shared.getItem(by: title)
             let vc = ItemVC()
-            vc.item = item
+            vc.configureVc(with: item, imagePath: nil)
             self?.navigationItem.backBarButtonItem = UIBarButtonItem(title: "Пошук", style: .plain, target: nil, action: nil)
             self?.navigationController?.pushViewController(vc, animated: true)
         }

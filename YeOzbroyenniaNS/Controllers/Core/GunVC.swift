@@ -66,6 +66,7 @@ class GunVC: UIViewController {
         view.addSubview(bgImageView)
         view.addSubview(topSeparatorView)
         view.addSubview(gunsTable)
+
     }
     
     //MARK: - Apply constraints
@@ -104,6 +105,9 @@ class GunVC: UIViewController {
         }()
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: titleLbl)
+        if #available(iOS 26.0, *) {
+            navigationItem.leftBarButtonItem?.hidesSharedBackground = true
+        }
     }
 }
 

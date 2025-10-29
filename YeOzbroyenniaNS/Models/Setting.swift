@@ -14,6 +14,7 @@ enum SettingType {
     case rate
     case share
     case thank
+    case cache
 }
 
 struct Setting {
@@ -29,10 +30,10 @@ class SettingsData {
         let settings = [
             Setting(type: .favorite, image: "heart", title: "Обране"),
             Setting(type: .about, image: "exclamationmark.circle", title: "Про додаток"),
-            Setting(type: .proposition, image: "lightbulb", title: "Ваші пропозиції")
-            //Setting(type: .rate, image: "hand.thumbsup", title: "Оцінити додаток"),
-            //Setting(type: .share, image: "square.and.arrow.up", title: "Поділитися додатком"),
-            //Setting(type: .thank, image: "hryvniasign", title: "Підтримати автора")
+            Setting(type: .proposition, image: "lightbulb", title: "Ваші пропозиції"),
+            Setting(type: .rate, image: "hand.thumbsup", title: "Оцінити додаток"),
+            Setting(type: .share, image: "square.and.arrow.up", title: "Поділитися додатком"),
+            Setting(type: .cache, image: "cloud", title: "Видалити кеш"),
         ]
         return settings
     }

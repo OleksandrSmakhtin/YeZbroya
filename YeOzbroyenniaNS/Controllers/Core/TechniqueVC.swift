@@ -32,6 +32,7 @@ class TechniqueVC: UIViewController {
         return table
     }()
     
+    
     private let bgImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: "background")
@@ -100,6 +101,9 @@ class TechniqueVC: UIViewController {
         }()
         
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: titleLbl)
+        if #available(iOS 26.0, *) {
+            navigationItem.leftBarButtonItem?.hidesSharedBackground = true
+        }
     }
 
 }

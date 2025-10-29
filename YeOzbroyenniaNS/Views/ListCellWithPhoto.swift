@@ -6,6 +6,12 @@
 //
 
 import UIKit
+import SDWebImage
+
+enum ItemImageType {
+    case png
+    case other
+}
 
 class ListCellWithPhoto: UITableViewCell {
 
@@ -74,28 +80,19 @@ class ListCellWithPhoto: UITableViewCell {
     
     //MARK: - Apply constraints
     private func applyConstraints() {
-        // bottomSeparatorView constraints
-        let bottomSeparatorViewConstraints = [
-            bottomSeparatorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            bottomSeparatorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            bottomSeparatorView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            bottomSeparatorView.heightAnchor.constraint(equalToConstant: 1)
+        // titleLbl constraints
+        let titleLblConstraints = [
+            titleLbl.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 120),
+            titleLbl.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -50),
+            titleLbl.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ]
         
         //image
         let zbroyaImageConstraints = [
             zbroyaImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            zbroyaImage.trailingAnchor.constraint(equalTo: titleLbl.trailingAnchor, constant: -20),
-            zbroyaImage.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            zbroyaImage.heightAnchor.constraint(equalToConstant: 60),
-            zbroyaImage.widthAnchor.constraint(equalToConstant: 100)
-        ]
-        
-        // titleLbl constraints
-        let titleLblConstraints = [
-            titleLbl.leadingAnchor.constraint(equalTo: zbroyaImage.leadingAnchor, constant: 20),
-            titleLbl.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -50),
-            titleLbl.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+            zbroyaImage.trailingAnchor.constraint(equalTo: titleLbl.leadingAnchor, constant: -20),
+            zbroyaImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            zbroyaImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
         ]
         
         // disclousere Indicator constraints
@@ -114,9 +111,19 @@ class ListCellWithPhoto: UITableViewCell {
     }
 
     //MARK: - Configure
-    public func configure(with title: String , image: String) {
+    public func configure(with title: String, image: String?) {
         titleLbl.text = title
-        zbroyaImage.image = UIImage(named: image)
+        
+        if let image = image {
+            zbroyaImage.image = UIImage(named: image)
+        } else {
+            let item = DataManager.shared.getItem(by: title)
+            guard let imageUrlString = item.images?.first else { return }
+            guard let url = URL(string: imageUrlString) else { return }
+            zbroyaImage.sd_setImage(with: url)
+            
+        }
+        
     }
     
 }

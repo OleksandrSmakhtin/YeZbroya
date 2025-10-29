@@ -9,6 +9,7 @@ import Foundation
 
 struct Item: Codable {
     let item: String
+    let images: [String]?
     let property: [Property]
 }
 

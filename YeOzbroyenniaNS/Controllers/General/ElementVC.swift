@@ -24,6 +24,7 @@ class ElementVC: UIViewController {
         let table = UITableView()
         table.backgroundColor = UIColor(named: "tableColor")
         table.register(ListCellWithPhoto.self, forCellReuseIdentifier: ListCellWithPhoto.identifier)
+        table.register(ListCell.self, forCellReuseIdentifier: ListCell.identifier)
         table.layer.cornerRadius = 15
         table.separatorInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         table.showsVerticalScrollIndicator = false
@@ -123,9 +124,24 @@ extension ElementVC: UITableViewDelegate, UITableViewDataSource {
     
     // cell for row
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ListCellWithPhoto.identifier) as? ListCellWithPhoto else { return UITableViewCell() }
-        cell.configure(with: element.items[indexPath.row], image: element.imagePath[indexPath.row])
-        return cell
+        
+       // if let imagePath = element.imagePath?[indexPath.row] {
+        
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: ListCellWithPhoto.identifier) as? ListCellWithPhoto else { return UITableViewCell() }
+            cell.configure(with: element.items[indexPath.row], image: element.imagePath?[indexPath.row])
+            
+            
+            return cell
+            
+            
+//        } else {
+//            guard let cell = tableView.dequeueReusableCell(withIdentifier: ListCell.identifier) as? ListCell else { return UITableViewCell() }
+//            //cell.configure(with: element.items[indexPath.row], image: element.imagePath?[indexPath.row])
+//            cell.configure(with: element.items[indexPath.row])
+//            return cell
+//        }
+        
+
     }
     
     // height for row
@@ -142,7 +158,12 @@ extension ElementVC: UITableViewDelegate, UITableViewDataSource {
         let item = DataManager.shared.getItem(by: itemTitle)
         
         let vc = ItemVC()
-        vc.item = item
+        vc.configureVc(with: item, imagePath: element.imagePath?[indexPath.row])
+        
+        //MARK: - Test
+//        let vc = TestVC()
+//        vc.configureVc(with: item, imagePath: element.imagePath?[indexPath.row])
+        
         navigationController?.pushViewController(vc, animated: true)
         
     }

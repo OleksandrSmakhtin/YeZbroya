@@ -50,7 +50,7 @@ class DataManager {
     
     //MARK: - Item
     func getItem(by item: String) -> Item {
-        var result = Item(item: "", property: [Property]())
+        var result = Item(item: "", images: [], property: [Property]())
         guard let path = Bundle.main.path(forResource: "allItems", ofType: "json") else { return result }
         do {
             //let jsonData = try Data(contentsOf: URL(filePath: path))

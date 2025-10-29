@@ -7,10 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4402A7A92EB2225100CE7215 /* NotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4402A7A82EB2225100CE7215 /* NotificationView.swift */; };
 		4416DE7C29F6ECFC00C2DCAD /* AboutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4416DE7B29F6ECFC00C2DCAD /* AboutVC.swift */; };
 		44358A5329F1D7E80081E193 /* YeOzbroenniaModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44E4790729F1CF050034C51E /* YeOzbroenniaModel.xcdatamodeld */; };
 		44358A5429F1D7E90081E193 /* YeOzbroenniaModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44E4790729F1CF050034C51E /* YeOzbroenniaModel.xcdatamodeld */; };
 		44358A5829F310560081E193 /* CustomTabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44358A5729F310560081E193 /* CustomTabsView.swift */; };
+		448429A92E89BC7300DF3B98 /* TestVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448429A82E89BC7300DF3B98 /* TestVC.swift */; };
+		448429AB2E89C39300DF3B98 /* ItemPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448429AA2E89C39300DF3B98 /* ItemPhotoCell.swift */; };
+		448429AE2E89CAA800DF3B98 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 448429AD2E89CAA800DF3B98 /* SDWebImage */; };
+		448429B02E89DB2E00DF3B98 /* DetailedPhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 448429AF2E89DB2E00DF3B98 /* DetailedPhotoView.swift */; };
 		44B0DA3729EC79C1007FD80F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B0DA3629EC79C1007FD80F /* AppDelegate.swift */; };
 		44B0DA3929EC79C1007FD80F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B0DA3829EC79C1007FD80F /* SceneDelegate.swift */; };
 		44B0DA4029EC79C1007FD80F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44B0DA3F29EC79C1007FD80F /* Assets.xcassets */; };
@@ -64,8 +69,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4402A7A82EB2225100CE7215 /* NotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationView.swift; sourceTree = "<group>"; };
 		4416DE7B29F6ECFC00C2DCAD /* AboutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutVC.swift; sourceTree = "<group>"; };
 		44358A5729F310560081E193 /* CustomTabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabsView.swift; sourceTree = "<group>"; };
+		448429A82E89BC7300DF3B98 /* TestVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestVC.swift; sourceTree = "<group>"; };
+		448429AA2E89C39300DF3B98 /* ItemPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemPhotoCell.swift; sourceTree = "<group>"; };
+		448429AF2E89DB2E00DF3B98 /* DetailedPhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailedPhotoView.swift; sourceTree = "<group>"; };
 		44B0DA3329EC79C1007FD80F /* YeOzbroyenniaNS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YeOzbroyenniaNS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44B0DA3629EC79C1007FD80F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44B0DA3829EC79C1007FD80F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				448429AE2E89CAA800DF3B98 /* SDWebImage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +209,9 @@
 				44E478F529EF02390034C51E /* ItemCell.swift */,
 				44E478FB29F174F20034C51E /* SettingCell.swift */,
 				44358A5729F310560081E193 /* CustomTabsView.swift */,
+				448429AA2E89C39300DF3B98 /* ItemPhotoCell.swift */,
+				448429AF2E89DB2E00DF3B98 /* DetailedPhotoView.swift */,
+				4402A7A82EB2225100CE7215 /* NotificationView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -243,6 +256,7 @@
 				44E478FF29F199CE0034C51E /* SearchResultsVC.swift */,
 				44E4790229F1C5F70034C51E /* FavoritesVC.swift */,
 				4416DE7B29F6ECFC00C2DCAD /* AboutVC.swift */,
+				448429A82E89BC7300DF3B98 /* TestVC.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -367,6 +381,9 @@
 				Base,
 			);
 			mainGroup = 44B0DA2A29EC79C1007FD80F;
+			packageReferences = (
+				448429AC2E89CAA800DF3B98 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+			);
 			productRefGroup = 44B0DA3429EC79C1007FD80F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -418,11 +435,13 @@
 				44B0DA7529EDC60A007FD80F /* SearchVC.swift in Sources */,
 				44E4790929F1CF050034C51E /* YeOzbroenniaModel.xcdatamodeld in Sources */,
 				44B0DA6F29EC7EE5007FD80F /* TechniqueVC.swift in Sources */,
+				448429AB2E89C39300DF3B98 /* ItemPhotoCell.swift in Sources */,
 				44B0DA6A29EC7E43007FD80F /* TabBarController.swift in Sources */,
 				44B0DA7729EDD8CD007FD80F /* TempModel.swift in Sources */,
 				44E478F629EF02390034C51E /* ItemCell.swift in Sources */,
 				44E4790629F1CDE80034C51E /* CoreDataManager.swift in Sources */,
 				44B0DA6D29EC7E84007FD80F /* GunVC.swift in Sources */,
+				4402A7A92EB2225100CE7215 /* NotificationView.swift in Sources */,
 				44358A5829F310560081E193 /* CustomTabsView.swift in Sources */,
 				44E478E729EEC06A0034C51E /* ElementVC.swift in Sources */,
 				44E478FA29F16D6C0034C51E /* Setting.swift in Sources */,
@@ -432,9 +451,11 @@
 				44E478DF29EEAD700034C51E /* Subcategory.swift in Sources */,
 				4416DE7C29F6ECFC00C2DCAD /* AboutVC.swift in Sources */,
 				44B0DA3729EC79C1007FD80F /* AppDelegate.swift in Sources */,
+				448429A92E89BC7300DF3B98 /* TestVC.swift in Sources */,
 				44B0DA3929EC79C1007FD80F /* SceneDelegate.swift in Sources */,
 				44E478E129EEADC80034C51E /* DataManager.swift in Sources */,
 				44E478E429EEB04E0034C51E /* Element.swift in Sources */,
+				448429B02E89DB2E00DF3B98 /* DetailedPhotoView.swift in Sources */,
 				44E478F429EEEDFE0034C51E /* ListCellWithPhoto.swift in Sources */,
 				44E478DD29EEAB3C0034C51E /* Category.swift in Sources */,
 				44E478F029EEDD890034C51E /* SubcategoryVC.swift in Sources */,
@@ -608,7 +629,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3PN53MQP93;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YeOzbroyenniaNS/Info.plist;
@@ -625,7 +646,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.smakhtin.yeZbroya;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -640,7 +661,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3PN53MQP93;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = YeOzbroyenniaNS/Info.plist;
@@ -657,7 +678,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.smakhtin.yeZbroya;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -782,6 +803,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		448429AC2E89CAA800DF3B98 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.21.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		448429AD2E89CAA800DF3B98 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 448429AC2E89CAA800DF3B98 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		44E4790729F1CF050034C51E /* YeOzbroenniaModel.xcdatamodeld */ = {

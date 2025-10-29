@@ -13,13 +13,8 @@ class CoreDataManager {
     
     static let shared = CoreDataManager()
     
-    
-    
     //MARK: - Context
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-    
-    
-    
     
     //MARK: - Add
     func addItem(with title: String) {
@@ -32,9 +27,6 @@ class CoreDataManager {
             print("Failed to add Item to CoreData due to: \(error.localizedDescription)")
         }
     }
-    
-    
-    
     
     //MARK: - Fetch
     func fetchItems() -> [String] {
@@ -52,9 +44,6 @@ class CoreDataManager {
         }
         return results
     }
-    
-    
-    
     
     //MARK: - Delete
     func deleteItem(with title: String) {
@@ -86,6 +75,4 @@ class CoreDataManager {
         }
         
     }
-    
-    
 }

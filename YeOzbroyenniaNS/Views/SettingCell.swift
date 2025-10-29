@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SettingCell: UITableViewCell {
 
@@ -37,6 +38,14 @@ class SettingCell: UITableViewCell {
         return imageView
     }()
     
+    private let separatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .black
+        view.alpha = 0.1
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     //MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -60,6 +69,7 @@ class SettingCell: UITableViewCell {
         contentView.addSubview(titleImageView)
         contentView.addSubview(titleLbl)
         contentView.addSubview(disclousereIndicator)
+        contentView.addSubview(separatorView)
     }
     
     //MARK: - Apply constraints
@@ -85,16 +95,30 @@ class SettingCell: UITableViewCell {
             disclousereIndicator.widthAnchor.constraint(equalToConstant: 10)
         ]
         
+        let separatorViewConstraints = [
+            separatorView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            separatorView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            separatorView.heightAnchor.constraint(equalToConstant: 1),
+            separatorView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ]
+        
         // activate constraints
         NSLayoutConstraint.activate(titleImageViewConstraints)
         NSLayoutConstraint.activate(titleLblConstraints)
         NSLayoutConstraint.activate(disclousereIndicatorConstraints)
+        NSLayoutConstraint.activate(separatorViewConstraints)
     }
 
     //MARK: - Configure
     public func configure(with setting: Setting) {
         titleLbl.text = setting.title
         titleImageView.image = UIImage(systemName: setting.image)
+        
+        if setting.type == .cache {
+            SDImageCache.shared.calculateSize { [weak self] fileCount, totalSize in
+                self?.titleLbl.text = setting.title + ": \(totalSize / 1024 / 1024) МБ"
+            }
+        }
     }
 
 }

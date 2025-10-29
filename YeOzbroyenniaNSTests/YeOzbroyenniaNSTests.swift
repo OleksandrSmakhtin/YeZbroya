@@ -10,27 +10,57 @@ import XCTest
 
 final class YeOzbroyenniaNSTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    var dataManager: DataManager!
+        
+        override func setUpWithError() throws {
+            dataManager = DataManager.shared
         }
-    }
+
+        override func tearDownWithError() throws {
+            dataManager = nil
+        }
+
+        func testGetSubcategory() throws {
+            let expectedCategory = "Стрілецька зброя"
+            let subcategory = dataManager.getSubcategory(by: expectedCategory)
+            
+            XCTAssertEqual(subcategory.category, expectedCategory, "Category should match the expected category")
+            XCTAssertFalse(subcategory.subcategories.isEmpty, "Subcategories should not be empty")
+        }
+
+        func testGetElements() throws {
+            let expectedSubcategory = "Автомати"
+            let element = dataManager.getElements(by: expectedSubcategory)
+            
+            XCTAssertEqual(element.subcategory, expectedSubcategory, "Subcategory should match the expected subcategory")
+            XCTAssertFalse(element.items.isEmpty, "Items should not be empty")
+        }
+
+        func testGetItem() throws {
+            let expectedItem = "Glock 17"
+            let item = dataManager.getItem(by: expectedItem)
+            
+            XCTAssertEqual(item.item, expectedItem, "Item should match the expected item")
+            XCTAssertFalse(item.property.isEmpty, "Properties should not be empty")
+        }
+
+        func testGetRandom() throws {
+            let randomItems = dataManager.getRandom()
+            
+            XCTAssertEqual(randomItems.count, 3, "Should return exactly 3 random items")
+            for item in randomItems {
+                XCTAssertFalse(item.isEmpty, "Item names should not be empty")
+            }
+        }
+
+        func testGetSearchedItems() throws {
+            let query = "Glock 17"
+            let searchResults = dataManager.getSearchedItems(by: query)
+            
+            XCTAssertFalse(searchResults.isEmpty, "Search results should not be empty")
+            for result in searchResults {
+                XCTAssertTrue(result.lowercased().contains(query.lowercased()), "Search results should contain the query")
+            }
+        }
 
 }

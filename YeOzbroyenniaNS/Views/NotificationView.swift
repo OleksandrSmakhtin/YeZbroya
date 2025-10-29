@@ -19,10 +19,10 @@ class NotificationView: UIView {
         return view
     }()
     
-    private let achivmentLbl: UILabel = {
+    private let notificationLbl: UILabel = {
         let lbl = UILabel()
         lbl.textColor = .label
-        lbl.font = .systemFont(ofSize: 13, weight: .medium)
+        lbl.font = .systemFont(ofSize: 18, weight: .regular)
         lbl.translatesAutoresizingMaskIntoConstraints = false
         return lbl
     }()
@@ -32,11 +32,11 @@ class NotificationView: UIView {
         super.init(frame: frame)
         // settings
         backgroundColor = UIColor(named: "tableColor")
-        layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOpacity = 0.5
-        layer.shadowOffset = CGSize(width: 4, height: 4)
-        layer.shadowRadius = 4
-        layer.cornerRadius = 17.5
+//        layer.shadowColor = UIColor.black.cgColor
+//        layer.shadowOpacity = 0.5
+//        layer.shadowOffset = CGSize(width: 4, height: 4)
+//        layer.shadowRadius = 4
+        layer.cornerRadius = 30
         isHidden = true
         translatesAutoresizingMaskIntoConstraints = false
         // add subviews
@@ -49,7 +49,7 @@ class NotificationView: UIView {
     //MARK: - Add subviews
     private func setViews() {
         addSubview(iconImageView)
-        addSubview(achivmentLbl)
+        addSubview(notificationLbl)
     }
     
     //MARK: - Apply constraints
@@ -57,24 +57,24 @@ class NotificationView: UIView {
         
         let iconImageViewConstraints = [
             //iconImageView.heightAnchor.constraint(equalToConstant: 20),
-            iconImageView.widthAnchor.constraint(equalToConstant: 18),
-            iconImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 18),
+            iconImageView.widthAnchor.constraint(equalToConstant: 25),
+            iconImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -18),
             iconImageView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ]
         
         let achivmentLblConstraints = [
-            achivmentLbl.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 7),
-            achivmentLbl.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
-            achivmentLbl.centerYAnchor.constraint(equalTo: centerYAnchor)
+            notificationLbl.trailingAnchor.constraint(equalTo: iconImageView.leadingAnchor, constant: -7),
+            notificationLbl.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            notificationLbl.centerYAnchor.constraint(equalTo: centerYAnchor)
         ]
         
         NSLayoutConstraint.activate(iconImageViewConstraints)
         NSLayoutConstraint.activate(achivmentLblConstraints)
     }
     
-    //MARK: - Set score
-    func configure(with score: Int) {
-        achivmentLbl.text = "Score streak: \(score)"
+    //MARK: - Set notification
+    func configure(with text: String) {
+        notificationLbl.text = text
 //        achivmentLbl.transform = CGAffineTransform.identity.scaledBy(x: 0.7, y: 0.7)
 //        UIView.animate(withDuration: 0.3) { [self] in
 //            achivmentLbl.transform = CGAffineTransform.identity.scaledBy(x: 1.0, y: 1.0)
